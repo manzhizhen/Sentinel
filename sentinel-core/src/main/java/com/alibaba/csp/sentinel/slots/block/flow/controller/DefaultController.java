@@ -47,6 +47,7 @@ public class DefaultController implements Controller {
         if (node == null) {
             return -1;
         }
+
         return grade == RuleConstant.FLOW_GRADE_THREAD ? node.curThreadNum() : (int)node.passQps();
     }
 

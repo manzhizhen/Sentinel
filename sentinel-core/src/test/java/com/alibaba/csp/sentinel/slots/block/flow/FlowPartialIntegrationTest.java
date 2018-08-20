@@ -78,7 +78,7 @@ public class FlowPartialIntegrationTest {
                         System.out.println("notify up");
                         sequence.notify();
                     }
-                    Thread.sleep(1000);
+                    Thread.sleep(1000000);
                 } catch (BlockException e1) {
                     assertTrue(false);
                 } catch (InterruptedException e1) {

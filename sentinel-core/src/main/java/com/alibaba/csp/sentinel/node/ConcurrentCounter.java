@@ -41,7 +41,8 @@ public class ConcurrentCounter {
     public boolean tryCompareAndIncrease (int maxConcurrentValue) {
         PermitsSemaphore curThreshold = threshold.get();
         if (curThreshold == null || curThreshold.getPermits() != maxConcurrentValue) {
-            threshold.compareAndSet(curThreshold, new PermitsSemaphore(maxConcurrentValue));
+            boolean result = threshold.compareAndSet(curThreshold, new PermitsSemaphore(maxConcurrentValue));
+            System.out.println(result);
             // can not be null
             curThreshold = threshold.get();
         }
@@ -85,6 +86,7 @@ public class ConcurrentCounter {
 
         public PermitsSemaphore(int permits) {
             super(permits);
+            this.permits = permits;
         }
 
         public int getCurValue() {

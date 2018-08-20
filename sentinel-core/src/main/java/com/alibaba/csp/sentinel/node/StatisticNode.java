@@ -172,6 +172,7 @@ public class StatisticNode implements Node {
 
     @Override
     public void increaseThreadNum() {
+        System.out.println(123);
         // do nothings
     }
 
